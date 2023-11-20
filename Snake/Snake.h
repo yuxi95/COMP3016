@@ -2,11 +2,11 @@
 
 #include "Object.h"
 
-const int INIT_NODES = 3;           // 初始长度
-const float SNAKE_SPEED = 32.0f;    // 基础速度
+const int INIT_NODES = 3;           // initial length
+const float SNAKE_SPEED = 32.0f;    // base speed
 
 //
-// 蛇
+// snack
 //
 
 class Snake : public Object
@@ -17,13 +17,13 @@ public:
 
     void init();
 
-    Point head() const;         // 获取头节点位置
-    int size() const;           // 返回长度
-    void setDir(Point dir);     // 设置方向
-    float speed() const;        // 返回速度
-    void setSpeed(float value); // 设置速度
-    void grow(int n);           // 增长
-    bool hitSelf() const;       // 判断是否碰到了自己
+    Point head() const;         // Get the head node position
+    int size() const;           // return length
+    void setDir(Point dir);     // set direction
+    float speed() const;        // return speed
+    void setSpeed(float value); // set speed
+    void grow(int n);           // grow
+    bool hitSelf() const;       // Determine whether you have touched yourself
 
     void update(float delay);
     void draw();
@@ -33,13 +33,13 @@ private:
     SDL_Texture* texBody;
     SDL_Texture* texTail;
 
-    Point m_dir;        // 当前蛇方向
-    float m_speed;      // 速度
+    Point m_dir;        // Current snake direction
+    float m_speed;      // speed
 
-    std::vector<Point> m_nodes; // 蛇节点
-    std::deque<Point> m_path;   // 路径
+    std::vector<Point> m_nodes; // nodes
+    std::deque<Point> m_path;   // path
 
-    // 绘制节点
+    // drawNode
     void drawNode(int index);
 };
 
