@@ -5,7 +5,7 @@
 class Scene;
 
 //
-// 基础对象类
+// base object class
 //
 
 class Object
