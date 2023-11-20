@@ -141,24 +141,24 @@ inline float length(const Point& p)
     return (float) sqrt(p.x * p.x + p.y * p.y);
 }
 
-// 获取角度
+// get angle
 inline float degreeAngle(const Point& p)
 {
     return static_cast<float>(atan2(p.y, p.x) * 180.0 / M_PI);
 }
 
 //
-// 辅助
+// Auxiliary
 //
 
-// 加载纹理
+// Load texture
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const std::string& filename);
 
-// 删除纹理
+// delete texture
 void freeTexture(SDL_Texture* &ptr);
 
 // text output
 void textout(float x, float y, const char* text, Color color);
 
-// 返回文本宽度
+// Return text width
 int textwidth(const char* text);
