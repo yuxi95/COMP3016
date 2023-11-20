@@ -7,10 +7,10 @@ SDL_Renderer* renderer = nullptr;
 TTF_Font* fontNormal = nullptr;
 Scene* scene = nullptr;
 
-// 初始化
+// initial
 int init(const char* title, int width, int height, bool fullscreen);
-void shutdown();            // 关闭
-bool poll_events();         // 处理消息
+void shutdown();            // shutdown
+bool poll_events();         // Process messages
 
 // main
 int main(int argc, char* argv[])
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
         delay = d * 0.001f;
         t = SDL_GetTicks();
 
-        // 清屏
+        // Clear
         //SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
         //SDL_RenderClear(renderer);
 
@@ -39,7 +39,7 @@ int main(int argc, char* argv[])
         // update screen
         SDL_RenderPresent(renderer);
 
-        // 帧率
+        // Frame rate
         if (d < 16) {
             SDL_Delay(16 - d);
         }
@@ -50,27 +50,27 @@ int main(int argc, char* argv[])
     return 0;
 }
 
-// 初始化
+// initialization
 int init(const char* title, int width, int height, bool fullscreen)
 {
     printf("SDL> initialize...\n");
 
-    // 初始化 SDL
+    // initialization SDL
     if (SDL_Init(SDL_INIT_EVENTS | SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0) {
         printf("SDL> initialize failed!\n");
         printf("SDL> %s\n", SDL_GetError());
         return -1;
     }
 
-    // 创建窗口
+    // Create window
     int flag = 0;
 
-    // 判断是否使用全屏模式
+    // Determine whether to use full screen mode
     if (fullscreen) {
         flag = SDL_WINDOW_FULLSCREEN;
     }
 
-    // 创建窗口
+    // Create window
     window = SDL_CreateWindow(
         title,
         SDL_WINDOWPOS_CENTERED,
@@ -87,23 +87,23 @@ int init(const char* title, int width, int height, bool fullscreen)
         printf("SDL> window create success.\n");
     }
 
-    // 初始化渲染器
+    // Initialize renderer
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
     if (renderer == nullptr) {
         printf("SDL> renderer create failed!\n");
         printf("SDL> %s\n", SDL_GetError());
     }
     else {
-        // 设置渲染效果
+        // Set rendering effects
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "best");
 
-        // 初始化渲染颜色
+        // Initialize render color
         SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
         printf("SDL> renderer create success.\n");
     }
 
-    // 初始化音频处理库
+    // Initialize audio processing library
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
         printf("SDL> SDL_mixer: initialize failed!\n");
         printf("SDL> SDL_mixer: %s\n", Mix_GetError());
@@ -112,7 +112,7 @@ int init(const char* title, int width, int height, bool fullscreen)
         Mix_Init(MIX_INIT_MP3);
     }
 
-    // 初始化字体引擎
+    // Initialize font engine
     if (TTF_Init() < 0) {
         printf("SDL> SDL_ttf: initialize failed!\n");
         printf("SDL> SDL_ttf: %s\n", TTF_GetError());
@@ -124,7 +124,7 @@ int init(const char* title, int width, int height, bool fullscreen)
         }
     }
 
-    // 初始化图片加载器
+    // Initialize image loader
     if (IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) < 0) {
         printf("SDL> SDL_image: initialize failed!\n");
         printf("SDL> SDL_image: %s\n", IMG_GetError());
@@ -135,7 +135,7 @@ int init(const char* title, int width, int height, bool fullscreen)
     return 0;
 }
 
-// 关闭
+// shutdown
 void shutdown()
 {
     if (scene) {
@@ -148,7 +148,7 @@ void shutdown()
         fontNormal = nullptr;
     }
 
-    // 释放SDL对象
+    // Release SDL object
     TTF_Quit();
     IMG_Quit();
     Mix_CloseAudio();
@@ -166,15 +166,15 @@ void shutdown()
     SDL_Quit();
 }
 
-// 处理消息
+// Process messages
 bool poll_events()
 {
-    // 处理SDL事件
+    // Handling SDL events
     SDL_Event event;
 
     while (SDL_PollEvent(&event)) {
         switch (event.type) {
-        case SDL_QUIT: // SDL退出
+        case SDL_QUIT: // SDLQUIT
             printf("SDL> quit.\n");
             //running = false;
             // this->dispose();
@@ -215,7 +215,7 @@ bool poll_events()
     return true;
 }
 
-// 加载纹理
+// Load texture
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const std::string& filename)
 {
     SDL_Surface* surface = IMG_Load(filename.c_str());
@@ -240,7 +240,7 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const std::string& filename)
     }
 }
 
-// 删除纹理
+// delete texture
 void freeTexture(SDL_Texture* &ptr)
 {
     if (ptr) {
@@ -273,7 +273,7 @@ void textout(float x, float y, const char* text, Color color)
     }
 }
 
-// 返回文本宽度
+// Return text width
 int textwidth(const char* text)
 {
     int n;
