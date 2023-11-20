@@ -2,14 +2,14 @@
 
 #include "Object.h"
 
-// 不同水果对应不同分数（对应分数增长蛇身相应的长度） 共有5种
+//Different fruits correspond to different scores (corresponding scores increase the corresponding length of the snake body). There are 5 types in total.
 enum class FruitType
 {
-    Black,      // 黑色 不得分
-    Bronw,      // 棕色 不得分
-    Red,        // 红色 3分
-    Blue,       // 蓝色 2分
-    Green,      // 绿色 1分
+    Black,      // black No points
+    Bronw,      // Bronw No points
+    Red,        // Red 3points
+    Blue,       // Blue 2points
+    Green,      // Green 1points
 };
 
 class Fruit : public Object
@@ -18,25 +18,26 @@ public:
     Fruit(Scene* scene);
     ~Fruit();
 
-    FruitType getType() const;          // 获取类型
-    void setType(FruitType type);       // 设置类型    
+    FruitType getType() const;          // get type
+    void setType(FruitType type);       // Set type   
 
-    Point position() const;             // 获取位置
-    void setPosition(Point pos);        // 设置位置
+    Point position() const;             // get type
+    void setPosition(Point pos);        // Set type   
+
     void setPosition(float x, float y);
 
-    float size() const; // 返回大小
-    void setSize(float value); // 设置大小
+    float size() const; // Return size
+    void setSize(float value); // set size
 
     void update(float delay);
     void draw();
 
 private:
-    FruitType m_type;   // 类型
-    Color m_color;      // 绘制颜色
-    Point m_pos;        // 位置
-    float m_size;       // 大小
+    FruitType m_type;   // type
+    Color m_color;      // draw color
+    Point m_pos;        // location
+    float m_size;       // size
 
-    SDL_Texture* m_texture; // 纹理
+    SDL_Texture* m_texture; // texture
 };
 
