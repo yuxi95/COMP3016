@@ -19,13 +19,13 @@ Fruit::~Fruit()
     }
 }
 
-// 获取类型
+// get type
 FruitType Fruit::getType() const
 {
     return m_type;
 }
 
-// 设置类型
+// set type
 void Fruit::setType(FruitType type)
 {
     m_type = type;
@@ -51,31 +51,31 @@ void Fruit::setType(FruitType type)
     }
 }
 
-// 获取位置
+// get location
 Point Fruit::position() const
 {
     return m_pos;
 }
 
-// 设置位置
+// set location
 void Fruit::setPosition(Point pos)
 {
     m_pos = pos;
 }
 
-// 设置位置
+// set location
 void Fruit::setPosition(float x, float y)
 {
     m_pos = Point(x, y);
 }
 
-// 返回大小
+// return size
 float Fruit::size() const
 {
     return m_size;
 }
 
-// 设置大小
+// set size
 void Fruit::setSize(float value)
 {
     m_size = value;
