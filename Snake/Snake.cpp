@@ -36,42 +36,42 @@ void Snake::init()
         //y += 10.0f;
     }
 
-    // 初始方向和速度
+    // initial direction and speed
     m_dir = Point(0.0f, -1.0f);
     m_speed = SNAKE_SPEED;
 }
 
-// 获取头节点位置
+// Get the head node position
 Point Snake::head() const
 {
     return m_nodes[0];
 }
 
-// 返回长度
+// Return length
 int Snake::size() const
 {
     return (int) m_nodes.size();
 }
 
-// 设置方向
+// set direction
 void Snake::setDir(Point dir)
 {
-    m_dir = dir * (1.0f / length(dir)); // 归一化向量
+    m_dir = dir * (1.0f / length(dir)); // normalized vector
 }
 
-// 返回速度
+// return speed
 float Snake::speed() const
 {
     return m_speed;
 }
 
-//设置速度
+//Set speed
 void Snake::setSpeed(float value)
 {
     m_speed = value;
 }
 
-// 增长
+// increase snack
 void Snake::grow(int n)
 {
     Point node = m_nodes.back();
@@ -80,13 +80,13 @@ void Snake::grow(int n)
     }
 }
 
-// 判断是否碰到了自己
+// Determine whether you have touched yourself
 bool Snake::hitSelf() const
 {
     Point p = m_nodes[0];
     for (size_t i = INIT_NODES; i < m_nodes.size(); ++i) {
         float d = length(m_nodes[i] - p);
-        if (d < 20.0f) {// 脑袋的大小
+        if (d < 20.0f) {// head size
             return true;
         }
     }
@@ -101,7 +101,7 @@ void Snake::update(float delay)
     pos = pos + v;
     m_nodes[0] = pos;
 
-    // 穿墙
+    // through walls
     if (m_nodes[0].x < 0.0f) {
         m_nodes[0].x += 800;
     }
@@ -115,7 +115,7 @@ void Snake::update(float delay)
         m_nodes[0].y -= 600;
     }
 
-    // 路径
+    // path
     m_path.push_front(pos);
 
     const size_t n = 32;
@@ -127,7 +127,7 @@ void Snake::update(float delay)
                 m_nodes[id] = m_path[i];
             }
             else {
-                // 删除后面的路径
+                // Delete the following path
                 m_path.erase(m_path.begin() + i, m_path.end());
                 break;
             }
@@ -137,7 +137,7 @@ void Snake::update(float delay)
 
 void Snake::draw()
 {
-    // 绘制轨迹
+    // draw trajectory
     SDL_SetRenderDrawColor(scene()->renderer(), 255, 0, 0, 128);
     for (size_t i = 1; i < m_path.size(); ++i) {
         //SDL_RenderDrawLineF(scene()->renderer(), m_path[i - 1].x, m_path[i - 1].y, m_path[i].x, m_path[i].y);
@@ -149,7 +149,7 @@ void Snake::draw()
     }
 }
 
-// 绘制节点
+// drawNode
 void Snake::drawNode(int index)
 {
     Point pos = m_nodes[index];
