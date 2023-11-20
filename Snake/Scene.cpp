@@ -86,7 +86,7 @@ SDL_Renderer* Scene::renderer() const
     return m_renderer;
 }
 
-// 按键按下
+// keyDown
 void Scene::keyDown(int key)
 {
     // move snake
@@ -95,20 +95,20 @@ void Scene::keyDown(int key)
     }
 }
 
-// 鼠标点击
+// click 
 void Scene::click(int x, int y)
 {
     SDL_Point pos = { x, y };
     Button* button = nullptr;
     for (size_t i = 0; i < buttons.size(); ++i) {
         if (buttons[i].scene == m_scene) {
-            if (SDL_PointInRect(&pos, &buttons[i].bounds)) {// 鼠标点击按钮范围
+            if (SDL_PointInRect(&pos, &buttons[i].bounds)) {// Mouse click button range
                 button = &buttons[i];
             }
         }
     }
 
-    // 根据点击返回的按钮名字，处理命令
+    // Process the command according to the name of the button returned by clicking
     if (button) {
         if (button->text == "start") {
             this->startGame();
@@ -170,7 +170,7 @@ void Scene::click(int x, int y)
 
 void Scene::update(float delay)
 {
-    // 根据当前界面，绘制
+    // Draw according to the current interface
     switch (m_scene) {
     case SceneType::Menu:
         break;
@@ -178,10 +178,10 @@ void Scene::update(float delay)
         break;
     case SceneType::Game:
         if (!isPause) {
-            // 刷新食物
+            // refreshFruit
             refreshFruit(delay);
 
-            // 键盘控制
+            // keyboard control
             const uint8_t* keyboard = SDL_GetKeyboardState(nullptr);
             Point dir;
             if (keyboard[SDL_SCANCODE_W] || keyboard[SDL_SCANCODE_UP]) {
@@ -203,19 +203,19 @@ void Scene::update(float delay)
 
             // space
             if (keyboard[SDL_SCANCODE_SPACE]) {
-                for (int i = 0; i < 2; ++i) { // 两倍速度
-                    // 吃和移动
+                for (int i = 0; i < 2; ++i) { // Double speed
+                    // eat and move
                     checkEat();
                     snake->update(delay);
                 }
             }
             else {
-                // 吃和移动
+                // eat and move
                 checkEat();
                 snake->update(delay);
             }
 
-            // 判断是否碰到自己
+            // Determine whether you have touched yourself
             if (snake->hitSelf()) {
                 endGame();
                 m_scene = SceneType::End;
@@ -235,14 +235,14 @@ void Scene::update(float delay)
 
 void Scene::draw()
 {
-    // 清屏
+    // clean
     SDL_SetRenderDrawColor(m_renderer, 224, 224, 224, 255);
     SDL_RenderClear(m_renderer);
 
     SDL_Rect rect;
     char buf[256] = { 0 };
 
-    // 根据当前场景绘制
+    // Draw based on current scene
     switch (m_scene) {
     case SceneType::Menu:
         // logo
@@ -263,12 +263,12 @@ void Scene::draw()
         }
         snake->draw();
 
-        // 左上角分数
+        // Top-left fraction
         snprintf(buf, 256, "score: %d", score);
         textout(6, 6, buf, Color(0, 0, 0));
         textout(4, 4, buf, Color(255, 255, 255));
 
-        // 暂停提示
+        // Pause prompt
         if (isPause) {
             textout(800 / 2 - 40, 600 / 2, "PAUSE", Color(255, 255, 255));
         }
@@ -276,7 +276,7 @@ void Scene::draw()
     case SceneType::End:
         textout(350, 150, "Game End", Color(0, 0, 0));
 
-        // 分数
+        // Points
         snprintf(buf, 256, "total score: %d", score);
         textout(302, 302, buf, Color(0, 0, 0));
         textout(300, 300, buf, Color(255, 255, 255));
@@ -285,7 +285,7 @@ void Scene::draw()
         break;
     }
 
-    // 绘制按钮
+    // draw button
     int id = 0;
     for (size_t i = 0; i < buttons.size(); ++i) {
         if (buttons[i].scene == m_scene) {
@@ -313,7 +313,7 @@ void Scene::draw()
         }
     }
 
-    // 状态
+    // state
     snprintf(buf, 256, "snake: %s", snakeStyle == 0 ? "yellow" : "purple");
     textout(4, 500, buf, Color(0, 0, 0));
 
