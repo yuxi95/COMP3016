@@ -58,6 +58,7 @@ for (int i = 0; i < INIT_NODES; ++i) {<br/>
 m_dir = Point(0.0f, -1.0f);<br/>
 m_speed = SNAKE_SPEED;<br/>
 
+![Screenshot](test1.png)<br/>
 Error Cause: <br/>
 The delegate function is bound to the wrong newly generated node and the head is hit<br/>
 
