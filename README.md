@@ -41,10 +41,10 @@ Mouse clicks evernt can also guide the direction of the snake
 ![61b241dba890334b46f25916ae3079b](https://github.com/yuxi95/COMP3016/assets/148018467/8f549fdc-12e1-406a-aea2-a06d2bf00563)
 ## UML Design Diagram
 use case diagram:
-![e8c15a3e76820a9c57b93a2ffc778e6](https://github.com/yuxi95/COMP3016/assets/148018467/8ed4c4f0-77ea-49ae-aa23-628b56346dee)
+![Screenshot](UML/ucg.png)
 class diagram:
-![4e577e3718fb9c4df2a55f33066c6ff](https://github.com/yuxi95/COMP3016/assets/148018467/7621cb99-afc1-40b1-8eb0-c57e7837abfd)
-activity diagram:
+![Screenshot](UML/cg.png)
+
 ## Exception handling use cases
 
 
