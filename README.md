@@ -41,7 +41,7 @@ Mouse clicks evernt can also guide the direction of the snake
 ![61b241dba890334b46f25916ae3079b](https://github.com/yuxi95/COMP3016/assets/148018467/8f549fdc-12e1-406a-aea2-a06d2bf00563)
 
 ## UML Design Diagram
-use case diagram:
+use case diagram:<br/>
 ![Screenshot](UML/usecasediagram.png)<br/>
 class diagram:
 ![Screenshot](UML/classdiagram.png)
