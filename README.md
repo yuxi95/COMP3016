@@ -35,7 +35,10 @@ Player use W A S D or ↑ ↓ ← → to control the movement of the snake. You 
 Players can speed up by pressing the space bar  
 Mouse clicks evernt can also guide the direction of the snake
 ## Screen Shot
-![Screenshot](ScreenShot/1.png)<br/>
+![Screenshot](ScreenShot/1.png)
+![Screenshot](ScreenShot/2.png)
+![Screenshot](ScreenShot/3.png)
+![Screenshot](ScreenShot/4.png)
 
 ## UML Design Diagram
 use case diagram:<br/>
