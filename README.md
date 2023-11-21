@@ -48,29 +48,29 @@ class diagram:
 
 ## Exception handling use cases
 before fix:<br/>
-m_nodes.clear();
-for (int i = 0; i < INIT_NODES; ++i) {
-    m_nodes.push_back(Point(x, y));
-    //y += 10.0f;
-}
+m_nodes.clear();<br/>
+for (int i = 0; i < INIT_NODES; ++i) {<br/>
+    m_nodes.push_back(Point(x, y));<br/>
+    //y += 10.0f;<br/>
+}<br/>
 
-// Initial direction and velocity
-m_dir = Point(0.0f, -1.0f);
-m_speed = SNAKE_SPEED;
+// Initial direction and velocity<br/>
+m_dir = Point(0.0f, -1.0f);<br/>
+m_speed = SNAKE_SPEED;<br/>
 
 Error Cause: <br/>
-The delegate function is bound to the wrong newly generated node and the head is hit
+The delegate function is bound to the wrong newly generated node and the head is hit<br/>
 
 after fix:<br/>
 
-m_nodes.clear();
-m_path.clear();
-for (int i = 0; i < INIT_NODES; ++i) {
-    Point pos = Point(x, y);
-    m_nodes.push_back(pos);
-    //y += 10.0f;
-}
+m_nodes.clear();<br/>
+m_path.clear();<br/>
+for (int i = 0; i < INIT_NODES; ++i) {<br/>
+    Point pos = Point(x, y);<br/>
+    m_nodes.push_back(pos);<br/>
+    //y += 10.0f;<br/>
+}<br/>
 
-// Initial direction and velocitys
-m_dir = Point(0.0f, -1.0f);
-m_speed = SNAKE_SPEED;
+// Initial direction and velocitys<br/>
+m_dir = Point(0.0f, -1.0f);<br/>
+m_speed = SNAKE_SPEED;<br/>
