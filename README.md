@@ -47,7 +47,7 @@ class diagram:
 ![Screenshot](UML/classdiagram.png)
 
 ## Exception handling use cases
-before fix:<br/>
+Before Fix:<br/>
 m_nodes.clear();<br/>
 for (int i = 0; i < INIT_NODES; ++i) {<br/>
     m_nodes.push_back(Point(x, y));<br/>
@@ -62,7 +62,7 @@ m_speed = SNAKE_SPEED;<br/>
 Error Cause: <br/>
 The delegate function is bound to the wrong newly generated node and the head is hit<br/>
 
-after fix:<br/>
+After Fix:<br/>
 
 m_nodes.clear();<br/>
 m_path.clear();<br/>
