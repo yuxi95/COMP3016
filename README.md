@@ -77,7 +77,7 @@ m_dir = Point(0.0f, -1.0f);<br/>
 m_speed = SNAKE_SPEED;<br/>
 
 ## Video Link
-YouTube:
+YouTube: https://youtu.be/E-L29phtJP0
 
 ## Git Link
 GitHub: https://github.com/yuxi95/COMP3016CW1
