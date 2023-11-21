@@ -7,7 +7,7 @@ Full name of subject: COMP3016 Immersive Game Technologies
 Student number: 10881130  
 CW1：Snake Game A console game based on C++ and SDL
 ## Development Environment
-Microsoft Visual Studio Professional 2022 (64 位) - Current Version 17.7.4  
+Microsoft Visual Studio Professional 2022 (64 bit) - Current Version 17.7.4  
 Operating System Version: Windows 10 Home Chinese version (version number 22H2)
 ## Description
 ### Game description and instruction
