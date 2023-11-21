@@ -23,7 +23,7 @@ Player use W A S D or ↑ ↓ ← → to control the movement of the snake. You 
 * The game is fully functional, allowing players to easily adjust whether to add a grid to the background, choose the color of the snake, exit the game, describe how to play, set a dedicated key to pause the game, and score points
 * The background sounds are soft, comfortable, and have special sound effects
 * Snake Fight (Remastered Edition) will not disappoint players with its extremely unique new features and graphics，and unlike the previous greedy snakes, it has no boundaries and can freely shuttle through the graphics
-    * Demo video: https://youtu.be/I_IGbPugyH0
+    
 ### Control
 | Control   | 1 | 2  |
 |--------|------|-----------|
