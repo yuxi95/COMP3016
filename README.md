@@ -75,3 +75,9 @@ for (int i = 0; i < INIT_NODES; ++i) {<br/>
 // Initial direction and velocitys<br/>
 m_dir = Point(0.0f, -1.0f);<br/>
 m_speed = SNAKE_SPEED;<br/>
+
+## Video Link
+YouTube:
+
+## Git Link
+GitHub: 
